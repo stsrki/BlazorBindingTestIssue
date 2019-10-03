@@ -1,0 +1,21 @@
+﻿@page "/counter"
+
+<h1>Bind Test</h1>
+
+<p>Current value: @value</p>
+
+<Textbox @ref="textbox" @bind-Value="@value"></Textbox>
+
+<button class="btn btn-primary" @onclick="Test">Click me</button>
+
+@code {
+    Textbox textbox;
+    string value = "one";
+
+    void Test()
+    {
+        value = "two";
+        
+        Console.WriteLine( textbox.Value );
+    }
+}

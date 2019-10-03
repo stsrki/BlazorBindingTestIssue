@@ -1,0 +1,12 @@
+﻿<input type="text" value="@Value" @onchange="@ValueHandler" />
+@code {
+    Task ValueHandler( ChangeEventArgs eventArgs )
+    {
+        Value = eventArgs?.Value?.ToString();
+        return ValueChanged.InvokeAsync( Value );
+    }
+
+    [Parameter] public string Value { get; set; }
+
+    [Parameter] public EventCallback<string> ValueChanged { get; set; }
+}
